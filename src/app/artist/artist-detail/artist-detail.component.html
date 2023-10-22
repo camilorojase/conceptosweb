@@ -1,0 +1,118 @@
+<div class="container-fluid" *ngIf="!artist">
+  <div class="d-flex flex-wrap justify-content-center align-items-center p-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" *ngIf="artist">
+  <div class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+      <a class="navbar-brand" id="headerlistdetail">{{artist.name}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item px-2">
+            <a i18n class="nav-link" id="buttonnewartist" routerLink="/artists/createArtist">New</a>
+          </li>
+          <li class="nav-item px-2">
+            <a i18n class="nav-link" id="buttoneditartist" routerLink="/artists/createArtist/{{id_artist}}">Edit</a>
+          </li>
+          <li class="nav-item px-2 input-group-append">
+            <a i18n id="buttondeleteartist" class="nav-link" (click)="deleteArtist(id_artist)">Delete</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex flex-wrap justify-content-around align-items-start py-3">
+    <div class="col d-flex justify-content-center align-items-center">
+      <img id="imgArtist" src={{artist.image}} alt={{artist.name}} width="60%">
+    </div>
+  </div>
+  <div class="row d-flex flex-wrap justify-content-around align-items-start py-3">
+    <div class="col d-flex justify-content-center align-items-center">
+      <ul class="list-group w-100">
+        <li class="list-group-item">
+          <span class="noh5" i18n id="titlebirthate">Birthdate</span>
+          <p>{{artist.birthdate.toLocaleString('en-US', {weekday: 'long', timeZone: 'UTC'})}}, {{artist.birthdate.toLocaleString('en-US', {day: 'numeric', timeZone: 'UTC'})}} {{artist.birthdate.toLocaleString('en-US', {month:'long', timeZone: 'UTC'})}} {{artist.birthdate.toLocaleString('en-US', {year:'numeric', timeZone: 'UTC'})}}</p>
+        </li>
+        <li class="list-group-item">
+          <span class="noh5" i18n id="titlebirthplace">Birthplace</span>
+          <p>{{artist.birthplace}}</p>
+        </li>
+        <li class="list-group-item">
+          <div class="py-2 d-flex justify-content-between">
+            <span class="noh5" i18n id="titlemovements">Movements</span>
+            <div>
+              <button i18n id="btnnewmovement" type="button" class="btn btn-dark mx-2" routerLink="/artists/createMovement/{{artist.id}}">New Movement</button>
+              <button i18n id="btnaddmovement" type="button" class="btn btn-dark mx-2" routerLink="/artists/addMovement/{{artist.id}}">Add Movement</button>
+            </div>
+          </div>
+          <div class="accordion" id="accordionMovements">
+            <div class="accordion-item" *ngFor="let m of artist.movements">
+              <h2 class="accordion-header" id="headingMov{{m.id}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseMov'+m.id" aria-expanded="true" [attr.aria-controls]="'collapseMov'+m.id">
+                  {{m.name}}
+                </button>
+              </h2>
+              <div id="collapseMov{{m.id}}" class="accordion-collapse collapse" [attr.aria-labelledby]="'headingMov'+m.id" data-bs-parent="#accordionMovements">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <strong i18n>Country of origin:</strong> {{m.countryOfOrigin}}
+                    </li>
+                    <li class="list-group-item">
+                      <strong i18n>Active years:</strong> {{m.activeYears}}
+                    </li>
+                    <li class="list-group-item justificar-texto">
+                      <strong i18n>Description:</strong> {{m.description}}
+                    </li>
+                    <li class="list-group-item justificar-texto">
+                      <button i18n type="button" class="btn btn-dark" routerLink="/artists/createMovement/{{artist.id}}/{{m.id}}">Edit Movement</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between py-2">
+            <span class="noh5" i18n id="titleartworks">Artworks</span>
+            <button i18n id="btnnewartwork" type="button" class="btn btn-dark" routerLink="/artworks/create/{{artist.id}}">New Artwork</button>
+          </div>
+          <div class="accordion" id="accordionArtworks">
+            <div class="accordion-item" *ngFor="let a of artist.artworks">
+              <h2 class="accordion-header" id="headingArt{{a.id}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseArt'+a.id" aria-expanded="true" [attr.aria-controls]="'collapseArt'+a.id">
+                  {{a.name}}
+                </button>
+              </h2>
+              <div id="collapseArt{{a.id}}" class="accordion-collapse collapse" [attr.aria-labelledby]="'headingArt'+a.id" data-bs-parent="#accordionArtworks">
+                <div class="accordion-body">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <strong i18n>Year:</strong> {{a.year}}
+                    </li>
+                    <li class="list-group-item">
+                      <strong i18n>Type:</strong> {{a.type}}
+                    </li>
+                    <li class="list-group-item justificar-texto">
+                      <strong i18n>Description:</strong> {{a.description}}
+                    </li>
+                    <li class="list-group-item justificar-texto">
+                      <button i18n type="button" class="btn btn-dark" routerLink="/artworks/list/{{ a.id }}">Detail</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

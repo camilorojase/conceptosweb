@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center">
+  <div class="card cardForm mt-5">
+      <div class="card-body mx-5">
+        <span i18n class="card-title mb-4 noh5">Movement List</span>
+        <div class="table-responsive">
+          <table id="movementsList" aria-describedby="desc" class="table table-striped" *ngIf="artist">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th i18n scope="col">Name</th>
+                <th i18n scope="col">Country</th>
+                <th i18n scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movement of movements">
+                <th scope="row">{{movement.id}}</th>
+                <td>{{movement.name}}</td>
+                <td>{{movement.countryOfOrigin}}</td>
+                <td>
+                  <div>
+                    <button aria-label="add movement to current artist" *ngIf="!search(movement.id)" class="btn btn-success mx-1" (click)="addMovement(movement.id)"><em class="bi bi-plus-circle-fill"></em></button>
+                    <button aria-label="remove movement to current artist" *ngIf="search(movement.id)" class="btn btn-danger mx-1" (click)="delMovement(movement.id)" disabled><em class="bi bi-dash-circle-fill"></em></button>
+                    <button aria-label="delete movement" class="btn btn-dark mx-1" (click)="deleteMovement(movement.id)"><em class="bi bi-trash3-fill"></em></button>
+                    <button aria-label="edit movement" i18n class="btn btn-secondary mx-1" routerLink="/artists/addMovement/{{id_artist}}/{{movement.id}}">Edit</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="my-3">
+          <button i18n class="btn btn-dark" routerLink="/artists/detail/{{id_artist}}">Back</button>
+        </div>
+        <p id="desc">table that list movements</p>
+      </div>
+  </div>
+</div>

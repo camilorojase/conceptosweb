@@ -1,0 +1,99 @@
+<testExecutions version="1">
+  <file path="src/app/home/home.component.spec.ts">
+    <testCase name="HomeComponent should create" duration="51"/>
+  </file>
+  <file path="src/app/artist/artist-list/artist-list.component.spec.ts">
+    <testCase name="ArtistListComponent should exist artist with correct id" duration="18"/>
+    <testCase name="ArtistListComponent should create" duration="6"/>
+    <testCase name="ArtistListComponent should have an Img element " duration="7"/>
+  </file>
+  <file path="src/app/exhibicion/exhibicion-detail/exhibicion-detail.component.spec.ts">
+    <testCase name="ExhibicionDetailComponent should have an H2 element " duration="16"/>
+    <testCase name="ExhibicionDetailComponent should have an P element " duration="5"/>
+    <testCase name="ExhibicionDetailComponent should create" duration="6"/>
+  </file>
+  <file path="src/app/movement/movement-create/movement-create.component.spec.ts">
+    <testCase name="MovementCreateComponent should create" duration="34"/>
+    <testCase name="MovementCreateComponent should has a title create" duration="10"/>
+    <testCase name="MovementCreateComponent should has a title create" duration="9"/>
+  </file>
+  <file path="src/app/sponsor/sponsor.service.spec.ts">
+    <testCase name="Service: Sponsor should ..." duration="2"/>
+  </file>
+  <file path="src/app/artist/artist.service.spec.ts">
+    <testCase name="Service: Artist should ..." duration="2"/>
+  </file>
+  <file path="src/app/exhibicion/exhibicion.service.spec.ts">
+    <testCase name="Service: Exhibicion should ..." duration="2"/>
+  </file>
+  <file path="src/app/artist/artist-create/artist-create.component.spec.ts">
+    <testCase name="ArtistCreateComponent should create" duration="30"/>
+  </file>
+  <file path="src/app/exhibicion/exhibicion-create/exhibicion-create.component.spec.ts">
+    <testCase name="ExhibicionCreateComponent should have a form group element count" duration="18"/>
+    <testCase name="ExhibicionCreateComponent should have an input element " duration="11"/>
+    <testCase name="ExhibicionCreateComponent should create" duration="8"/>
+  </file>
+  <file path="src/app/movement/movement.service.spec.ts">
+    <testCase name="Service: Movement should ..." duration="2"/>
+  </file>
+  <file path="src/app/artist/artist-detail/artist-detail.component.spec.ts">
+    <testCase name="ArtistDetailComponent should has all artworks" duration="29"/>
+    <testCase name="ArtistDetailComponent should head has artist name" duration="9"/>
+    <testCase name="ArtistDetailComponent should create" duration="7"/>
+    <testCase name="ArtistDetailComponent should has all movementes" duration="8"/>
+  </file>
+  <file path="src/app/exhibicion/exhibicion-list/exhibicion-list.component.spec.ts">
+    <testCase name="ExhibicionListComponent should have an P element " duration="8"/>
+    <testCase name="ExhibicionListComponent should create" duration="5"/>
+  </file>
+  <file path="src/app/exhibicion/exhibicion-associate-artwork/exhibicion-associate-artwork.component.spec.ts">
+    <testCase name="ExhibicionAssociateArtworkComponent should create" duration="13"/>
+    <testCase name="ExhibicionAssociateArtworkComponent should have an input element " duration="7"/>
+  </file>
+  <file path="src/app/sponsor/sponsor-create/sponsor-create.component.spec.ts">
+    <testCase name="SponsorCreateComponent should create" duration="13"/>
+    <testCase name="SponsorCreateComponent should have a form group element count" duration="6"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="6"/>
+    <testCase name="AppComponent should have as title 'museums-front'" duration="2"/>
+  </file>
+  <file path="src/app/artwork/artwork.service.spec.ts">
+    <testCase name="Service: Artwork should ..." duration="1"/>
+  </file>
+  <file path="src/app/museum/museum-list/museum-list.component.spec.ts">
+    <testCase name="MuseumListComponent should have an P element " duration="6"/>
+    <testCase name="MuseumListComponent should create" duration="4"/>
+    <testCase name="MuseumListComponent should have an Img element " duration="6"/>
+  </file>
+  <file path="src/app/museum/museum-detail/museum-detail.component.spec.ts">
+    <testCase name="MuseumDetailComponent should create" duration="9"/>
+    <testCase name="MuseumDetailComponent should have an img element " duration="5"/>
+  </file>
+  <file path="src/app/interceptors/httpErrorResponse.service.spec.ts">
+    <testCase name="Service: HttpErrorResponse should ..." duration="2"/>
+  </file>
+  <file path="src/app/museum/museum-create/museum-create.component.spec.ts">
+    <testCase name="MuseumCreateComponent should create" duration="17"/>
+    <testCase name="MuseumCreateComponent should have an input element " duration="9"/>
+  </file>
+  <file path="src/app/artwork/artwork-detail/artwork-detail.component.spec.ts">
+    <testCase name="ArtworkDetailComponent should create" duration="10"/>
+  </file>
+  <file path="src/app/movement/movement-list/movement-list.component.spec.ts">
+    <testCase name="MovementListComponent should has three movements" duration="13"/>
+    <testCase name="MovementListComponent should exist a btn-danger button" duration="6"/>
+    <testCase name="MovementListComponent should create" duration="6"/>
+  </file>
+  <file path="src/app/artwork/artwork-list/artwork-list.component.spec.ts">
+    <testCase name="ArtworkListComponent should create" duration="5"/>
+  </file>
+  <file path="src/app/artwork/artwork-associate-image/artwork-associate-image.component.spec.ts">
+    <testCase name="ArtworkAssociateImageComponent should have an input element " duration="11"/>
+    <testCase name="ArtworkAssociateImageComponent should create" duration="6"/>
+  </file>
+  <file path="src/app/artwork/artwork-create/artwork-create.component.spec.ts">
+    <testCase name="ArtworkCreateComponent should create" duration="16"/>
+  </file>
+</testExecutions>

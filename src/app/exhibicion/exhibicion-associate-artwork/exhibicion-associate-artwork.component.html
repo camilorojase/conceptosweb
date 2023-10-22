@@ -1,0 +1,57 @@
+<div class="modal-header" role="main" aria-labelledby="myModalLabel">
+  <h1 i18n class="modal-title modal-title-label-dlg" id="myModalLabel">Associate artwork to exhibition</h1>
+</div>
+<div class="modal-body">
+  <div class="container-fluid padding-top-2em">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container">
+          <form [formGroup]="myForm">
+            <!--Exhibition-->
+            <div class="form-group mx-sm-3 mb-2">
+              <label i18n for="description">Exhibition</label>
+              <input [readonly]="true" novalidate id="Exhibition" class="form-control" formControlName="exhibition"
+                placeholder="Museum's Exhibition" aria-disabled="true"/>
+            </div>
+            <!--Artist-->
+            <div class="form-group mx-sm-3 mb-2">
+              <label i18n for="address">Artist</label>
+              <select id="artist" class="form-select" aria-label="Default select example" (change)="onChangeArtist($event)" formControlName="artist">
+                <option selected>Select</option>
+                <option *ngFor="let objArtists of artists" [value]="objArtists.id">{{objArtists.name}}</option>
+              </select>
+              <div i18n class="alert alert-danger alert-dismissible fade show"
+                   *ngIf="myForm.get('artist')!.hasError('required') &&
+                          myForm.get('artist')!.touched">
+                          Artwork required
+              </div>
+            </div>
+            <!--Artworks-->
+            <div class="form-group mx-sm-3 mb-2">
+              <label i18n for="address">Artworks</label>
+              <select id="artwork" class="form-select" aria-label="Default select example" formControlName="artwork">
+                <option selected>Select</option>
+                <option *ngFor="let objArtwork of artworks" [value]="objArtwork">{{objArtwork.name}}</option>
+              </select>
+              <div i18n class="alert alert-danger alert-dismissible fade show"
+                   *ngIf="myForm.get('artwork')!.hasError('required') &&
+                          myForm.get('artwork')!.touched">
+                          Artwork required
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button id="btnCancel" type="button" class="btn btn-danger" (click)="onCancel()" data-dismiss="modal">
+    Cancel
+  </button>
+  <button id="btnSave" type="submit" class="btn btn-success" [disabled]="!myForm.valid" (click)="onCreate()">
+    Save
+  </button>
+</div>
+
+

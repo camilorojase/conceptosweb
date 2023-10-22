@@ -1,0 +1,22 @@
+<div class="padding-top-2em">
+  <div class="btn-add-museum">
+    <button i18n id="btnAddMuseum" type="submit" class="btn btn-primary" (click)="goAddMuseum()">Add Museum</button>
+  </div>
+  <div class="padding-top-2em" *ngIf="selected">
+    <app-museum-detail [museumDetail]="selectedMuseum"></app-museum-detail>
+  </div>
+  <hr/>
+  <div class="container-fluid ">
+    <div class="row padding-bottom-3em" id="museumList">
+      <div *ngFor="let museum of museums" class="p-2 col-12 col-md-6 col-lg-4">
+        <div class="card top-0 start-50 translate-middle-x card-museum">
+          <img [src]="museum.image" class="card-img-top img-fluid img-museum" [alt]="museum.name" (click)="onSelected(museum)">
+          <div class="card-body">
+            <p class="title-obj card-title">{{museum.name}}</p>
+            <p class="card-text font-museum">{{museum.address}} - {{museum.city}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

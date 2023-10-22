@@ -1,0 +1,31 @@
+<div class="container-fluid navside">
+  <div class="row flex-nowrap contenedorArtista overflow">
+    <div class="col-auto col-md-2 col-lg-2 col-xl-3 px-0 bg-dark scrollarea padding-top-2em">
+      <div class=" d-flex justify-content-center align-items-center ps-3 pe-2 align-items-sm-start pt-2">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center" id="artistlist">
+          <li class="nav-item col-auto" >
+            <div class="col" *ngFor="let exhibition of exhibiciones; index as i; first as isFirst">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary btn-outline-primary" (click)="onSelected(exhibition)">
+              <div class="text-white bg-primary card-header">
+                <p class="my-0 fw-normal h4" i18n>Exhibition: {{i+1}}</p>
+              </div>
+              <div class="card-body text-black">
+                <p class="text-justify"><strong i18n>Name</strong><span>: </span>{{exhibition.name}}</p>
+                <p><strong i18n>Sponsor</strong> <span>: </span>{{exhibition.sponsor.name}}</p>
+              </div>
+            </div>
+          </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col px-0 scrollarea">
+      <div *ngIf="selected">
+        <app-exhibicion-detail [ExhibicionDetail]="selectedExhibicion"></app-exhibicion-detail>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

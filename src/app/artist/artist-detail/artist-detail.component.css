@@ -1,0 +1,22 @@
+.justificar-texto{
+  text-align: justify;
+}
+
+.img-artist{
+  max-width: 20.5em;
+  height: auto;
+  background: #000000;
+}
+
+.textoNegro{
+  color: #000000;
+}
+
+.input-group-append {
+  cursor: pointer;
+}
+
+.noh5{
+  font-size: 140%;
+  font-weight: 500;
+}

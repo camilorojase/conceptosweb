@@ -1,0 +1,116 @@
+
+<br>
+<div class="container mt-4">
+  <h2 i18n class="text-center">Create a new artwork</h2>
+
+  <form [formGroup]="artworkForm"
+   (ngSubmit)="!artworkForm.invalid && createArtWork(artworkForm.value)">
+
+
+    <!--name-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label i18n for="name">Name</label>
+      <input
+        novalidate
+        id="name"
+        class="form-control"
+        formControlName="name"
+        placeholder="artwork's name"
+      />
+      <div i18n
+        class="alert alert-danger alert-dismissible fade show"
+        *ngIf="
+          artworkForm.get('name')!.hasError('required') &&
+          artworkForm.get('name')!.touched  "   >   Name required
+      </div>
+      <div i18n
+        class="alert alert-danger alert-dismissible fade show"
+        *ngIf="artworkForm.get('name')!.hasError('minlength')"   >  Name too short
+      </div>
+    </div>
+
+
+     <!--year-->
+     <div class="form-group mx-sm-3 mb-2">
+      <label i18n for="year">year </label>
+      <input novalidate
+           id="year"
+            class="form-control"
+            formControlName="year"
+            placeholder="year of creation" />
+
+          <div i18n class="alert alert-danger alert-dismissible fade show" *ngIf="artworkForm.get('year')!.hasError('required') &&
+              artworkForm.get('year')!.touched">   year required
+          </div>
+          <div i18n class="alert alert-danger alert-dismissible fade show"  *ngIf="this.artworkForm.get('year')!.hasError('minlength')">
+            year must be 4 digits
+          </div>
+          <div i18n class="alert alert-danger alert-dismissible fade show"  *ngIf="this.artworkForm.get('year')!.hasError('pattern')">
+            year must be only numbers
+          </div>
+      </div>
+
+           <!--type-->
+
+      <div class="form-group mx-sm-3 mb-2">
+      <label i18n for="type">type </label>
+      <select        novalidate>
+
+            <option *ngFor="let group of typelist "
+                    [value]="group">
+          {{ group }}
+        </option>
+      </select>
+      </div>
+
+
+         <!--desciption-->
+         <div class="form-group mx-sm-3 mb-2">
+          <label i18n for="description">description </label>
+          <input novalidate
+               id="description"
+                class="form-control"
+                formControlName="description"
+                placeholder="description" />
+
+              <div i18n class="alert alert-danger alert-dismissible fade show" *ngIf="artworkForm.get('description')!.hasError('required') &&
+                  artworkForm.get('description')!.touched">   description  required
+              </div>
+              <div i18n class="alert alert-danger alert-dismissible fade show"  *ngIf="this.artworkForm.get('description')!.hasError('maxlength')">
+                description must be 100 character or less
+              </div>
+         </div>
+
+
+
+           <!--short description-->
+          <div class="form-group mx-sm-3 mb-2">
+            <label i18n for="description">short description </label>
+            <input novalidate
+                 id="short_description"
+                  class="form-control"
+                  formControlName="short_description"
+                  placeholder="short_description" />
+
+                <div i18n class="alert alert-danger alert-dismissible fade show" *ngIf="artworkForm.get('short_description')!.hasError('required') &&
+                    artworkForm.get('short_description')!.touched">   short description  required
+                </div>
+                <div i18n class="alert alert-danger alert-dismissible fade show"  *ngIf="this.artworkForm.get('short_description')!.hasError('maxlength')">
+                  short_description must be 20 character or less
+                </div>
+           </div>
+
+
+
+
+    <div class="form-group mx-sm-3 mb-2">
+      <button type="submit" class="btn btn-primary" [disabled]="!artworkForm.valid">
+        Create
+      </button>
+
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelCreation()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+  <div class="padding-top-2em">
+    <div *ngIf="selected">
+      <app-artwork-detail [artworkDetail]="SelectedArtwork" ></app-artwork-detail>
+    </div>
+    <hr/>
+    <div class="container-fluid ">
+      <div class="row padding-bottom-3em">
+        <div *ngFor="let art of artworks" class="p-2 col-12 col-md-6 col-lg-4">
+          <div class="card top-0 start-50 translate-middle-x card-myobject" (click)="onSelectedArtwork(art)">
+            <!--img [src]="art.image" class="card-img-top img-fluid img-myobject" [alt]="art.name" -->
+            <div class="card-body">
+              <h5 class="card-title">{{art.name}}</h5>
+              <p class="card-text font-myobject">Year: {{art.year}}</p>
+              <p class="card-text font-myobject">{{art.type}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

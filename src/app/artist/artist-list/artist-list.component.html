@@ -1,0 +1,30 @@
+<div class="container-fluid navside">
+  <div class="row flex-nowrap contenedorArtista overflow">
+    <div class="col-auto col-md-2 col-lg-2 col-xl-3 px-0 bg-dark scrollarea">
+      <div class=" d-flex justify-content-center align-items-center ps-3 pe-2 align-items-sm-start pt-2">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center" id="artistlist">
+          <li class="nav-item col-auto" *ngFor="let a of artists" id="listArt{{a.name}}">
+            <button class="nav-link align-middle px-0" routerLink="detail/{{a.id}}">
+              <div class="d-block d-md-none border border-1 border-ligth rounded-3">
+                <img src={{a.image}} alt={{a.name}} class="smimg">
+              </div>
+              <div class="ms-1 d-none d-md-inline">
+                <div class="border border-1 border-ligth rounded-3">
+                  <div class="">
+                    <img src={{a.image}} alt="{{a.name}}-{{a.birthplace}}" class="rounded responsiveimg">
+                  </div>
+                  <div id="artistname{{a.name}}" class="py-2 border-top border-1 border-ligth textoSinLink responsivetxt">
+                    {{a.name}}
+                  </div>
+                </div>
+              </div>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col px-0 scrollarea">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

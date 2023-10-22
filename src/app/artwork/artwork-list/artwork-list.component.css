@@ -1,0 +1,26 @@
+.card-myobject{
+  height: 250px;
+  width: 250px;
+  /*overflow-y: scroll;*/
+}
+
+.img-myobject{
+  height: 150px;
+  width: 100%;
+}
+
+.font-myobject{
+  font-size: 13px;
+}
+
+.padding-top-1em{
+  padding-top: 1em;
+}
+
+.padding-top-2em{
+  padding-top: 2em;
+}
+
+.padding-bottom-3em{
+  padding-bottom: 3em;
+}

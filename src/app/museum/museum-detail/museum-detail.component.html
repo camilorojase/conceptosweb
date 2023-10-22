@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <dl>
+        <dt></dt>
+        <dd><p class="h3" id="museumDetailName">{{ museumDetail.name }}</p></dd>
+        <dd><br/></dd>
+        <dd><img [src]="museumDetail.image" class="card-img-top img-fluid" [alt]="museumDetail.name"></dd>
+        <dd i18n>Address: {{ museumDetail.address }} - {{museumDetail.city}}</dd>
+      </dl>
+    </div>
+    <div class="col-8">
+      <dl>
+        <dt i18n class="bold">Description</dt>
+        <dd class="text-justify">{{ museumDetail.description }}</dd>
+        <dd><hr/></dd>
+        <dt i18n>Exhibitions</dt>
+        <dd class="caption" *ngFor="let exhibition of museumDetail.exhibitions">
+          <a routerLink="/exhibitions/list/{{ exhibition.id }}/{{museumDetail.id}}">{{ exhibition.name }}</a>
+        </dd>
+        <dd><a i18n routerLink="/exhibitions/create/{{museumDetail.id}}">Create Exhibition</a></dd>
+        <dd><hr/></dd>
+        <dt i18n>Artworks</dt>
+        <dd class="caption" *ngFor="let artwork of museumDetail.artworks">
+          <a routerLink="/artworks/list/{{ artwork.id }}">{{ artwork.name }}</a>
+        </dd>
+      </dl>
+    </div>
+  </div>
+ </div>

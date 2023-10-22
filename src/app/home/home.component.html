@@ -1,0 +1,48 @@
+<ng-container class="">
+  <div class="row padding-top-2em">
+    <div class="col-12 col-md-6 co-lg-12">
+      <h2 i18n class="text-center">Museums</h2>
+      <div id="carouselMuseums" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let museum of museums;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
+            <img src={{museum.image}} class="d-block image-size" alt="{{museum.name}}-{{museum.city}}">
+            <div class="carousel-caption d-none d-md-block description-text">
+              <a class="noh5" routerLink="/museums/list/{{ museum.id }}">{{museum.name}}</a>
+              <p>{{museum.city}} - {{museum.address}}</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMuseums" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselMuseums" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 co-lg-12">
+      <h2 i18n class="text-center">Artists</h2>
+      <div id="carouselArtists" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let artist of artists;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
+            <img src={{artist.image}} class="d-block image-size" alt="{{artist.name}}-{{artist.birthplace}}">
+            <div class="carousel-caption d-none d-md-block description-text">
+              <a class="noh5" routerLink="/artists/detail/{{artist.id}}">{{artist.name}}</a>
+              <p>{{artist.birthdate.toLocaleString('en-US', {day: 'numeric', timeZone: 'UTC'})}} {{artist.birthdate.toLocaleString('en-US', {month:'long', timeZone: 'UTC'})}} {{artist.birthdate.toLocaleString('en-US', {year:'numeric', timeZone: 'UTC'})}} - {{artist.birthplace}}</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselArtists" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselArtists" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>

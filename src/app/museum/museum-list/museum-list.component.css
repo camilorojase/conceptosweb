@@ -1,0 +1,39 @@
+.card-museum{
+  height: 250px;
+  width: 250px;
+  /*overflow-y: scroll;*/
+}
+
+.img-museum{
+  height: 150px;
+  width: 100%;
+}
+
+.font-museum{
+  font-size: 13px;
+}
+
+.padding-top-1em{
+  padding-top: 1em;
+}
+
+.padding-top-2em{
+  padding-top: 2em;
+}
+
+.padding-bottom-3em{
+  padding-bottom: 3em;
+}
+
+.btn-add-museum{
+  right: 0;
+  position: absolute;
+  padding-right: 1em;
+}
+
+.title-obj{
+  font-size: 1.25rem;
+  margin-top: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}

@@ -1,0 +1,41 @@
+<div class="col-md-12">
+  <div class="h-100 p-5 text-black bg-white rounded-3">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-pills justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/exhibitions/create/{{this.museumId}}" i18n>Create Exhibition</a>
+          </li>
+        </ul>
+        <p></p>
+      </div>
+      <div class="col-md-7">
+        <h2 i18n>Exhibition: {{ExhibicionDetail.name}}</h2>
+        <p class="text-justify">{{ExhibicionDetail.description}}</p>
+        <div class="row">
+
+          <p class="h5" i18n>Artwork's exhibition</p>
+          <div class="nav flex-column nav-pills" id="v-pills">
+            <p *ngFor="let artw of ExhibicionDetail.artworks; index as j">
+              <a class="nav-link active" id="v-pills-home{{ artw.id }}" data-toggle="pill" routerLink="/artworks/list/{{ artw.id }}">{{ artw.name }}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="col text-black">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <p i18n class="my-0 fw-normal h4"> Sponsor </p>
+            </div>
+            <div class="card-body">
+              <p class="h4">{{ExhibicionDetail.sponsor.name}}</p>
+              <p><strong i18n>Description:</strong> {{ExhibicionDetail.sponsor.description}}</p>
+              <p><strong i18n>WebSite:</strong> <a href="{{ExhibicionDetail.sponsor.website}}"> {{ExhibicionDetail.sponsor.website}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="modal-header" role="main" aria-labelledby="myModalLabel">
+  <h1 i18n class="modal-title modal-title-label-dlg" id="myModalLabel">Associate image to artwork</h1>
+</div>
+<div class="modal-body">
+  <div class="container-fluid padding-top-2em">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container">
+          <form [formGroup]="myForm">
+            <!--Artwork-->
+            <div class="form-group mx-sm-3 mb-2">
+              <label i18n for="description">Artwork</label>
+              <input [readonly]="true" novalidate id="artwork" class="form-control" formControlName="artwork"
+                placeholder="Artwork" aria-disabled="true"/>
+            </div>
+            <!--imgUrl-->
+            <div class="form-group mx-sm-3 mb-2">
+              <label i18n for="imgUrl"> Url </label>
+              <input [readonly]="this.isDisabled" novalidate id="imgUrl" class="form-control" formControlName="imgUrl" placeholder="Artwork's img Url" required/>
+              <div i18n class="alert alert-danger alert-dismissible fade show"
+                   *ngIf="myForm.get('imgUrl')!.hasError('required') &&
+                          myForm.get('imgUrl')!.touched
+              ">
+               Url required
+              </div>
+            </div>
+            <!--imgAlt-->
+            <div class="form-group mx-sm-3 mb-2">
+              <label i18n for="imgAlt">Alt</label>
+              <input [readonly]="this.isDisabled" novalidate id="imgAlt" class="form-control" formControlName="imgAlt"
+                placeholder="Artwork's img Alt" />
+              <div i18n class="alert alert-danger alert-dismissible fade show"
+                   *ngIf="myForm.get('imgAlt')!.hasError('required') &&
+                          myForm.get('imgAlt')!.touched">
+                          Alt required
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button i18n type="button" class="btn btn-danger" (click)="onCancel()" data-dismiss="modal">
+    Cancel
+  </button>
+  <button i18n type="submit" class="btn btn-success" [disabled]="!myForm.valid" (click)="onCreate()">
+    Save
+  </button>
+</div>
+
+

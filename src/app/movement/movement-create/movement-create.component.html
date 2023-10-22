@@ -1,0 +1,68 @@
+<div class="container d-flex justify-content-center">
+  <div class="card cardForm mt-5">
+      <div class="card-body mx-5" *ngIf="this.movement">
+        <span i18n class="card-title mb-2 noh5" *ngIf="!this.id_movement">Create Movement</span>
+        <span i18n class="card-title mb-2 noh5" *ngIf="this.id_movement">Edit Movement</span>
+        <form
+        [formGroup]="movementForm"
+        (ngSubmit)="!movementForm.invalid && submitMovement()"
+        class="">
+          <div class="form-group my-3">
+            <label i18n for="name" class="form-label">Name</label>
+            <input novalidate id="name" class="form-control" formControlName="name" placeholder="Name">
+            <div class="fw-lighter text-danger small" *ngIf="movementForm.get('name')!.touched">
+              <div i18n *ngIf="movementForm.get('name')!.hasError('required')">
+                Name required
+              </div>
+              <div i18n *ngIf="movementForm.get('name')!.hasError('minlength')">
+                Name too short
+              </div>
+            </div>
+          </div>
+          <div class="row my-3">
+            <div class="form-group col-md-4 col-lg-4 col-12">
+              <label i18n for="countryOfOrigin" class="form-label">Country of Origin</label>
+              <select novalidate id="countryOfOrigin" class="form-select selectps" formControlName="countryOfOrigin" placeholder="country of origin">
+                <option *ngFor="let country of countries" value="{{country.name}}">{{country.name}}</option>
+              </select>
+              <div class="fw-lighter text-danger small" *ngIf="movementForm.get('countryOfOrigin')!.touched">
+                <div i18n *ngIf="movementForm.get('countryOfOrigin')!.hasError('required')">
+                  Country required
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-8 col-lg-8 col-12">
+              <label i18n for="activeYears" class="form-label">Active Years</label>
+              <input novalidate id="activeYears" class="form-control" formControlName="activeYears" placeholder="active years">
+              <div class="fw-lighter text-danger small" *ngIf="movementForm.get('activeYears')!.touched">
+                <div i18n *ngIf="movementForm.get('activeYears')!.hasError('required')">
+                  Active years required
+                </div>
+                <div i18n *ngIf="movementForm.get('activeYears')!.hasError('minlength')">
+                  Active years too short
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group my-3">
+            <label i18n for="description" class="form-label">Description</label>
+            <textarea novalidate id="description" class="form-control" formControlName="description" placeholder="Description" style="height: 200px;"></textarea>
+            <div class="fw-lighter text-danger small" *ngIf="movementForm.get('description')!.touched">
+              <div i18n *ngIf="movementForm.get('description')!.hasError('required')">
+                Description required
+              </div>
+              <div i18n *ngIf="movementForm.get('description')!.hasError('minlength')">
+                Description too short
+              </div>
+            </div>
+          </div>
+          <div class="my-3 d-flex justify-content-end">
+            <button aria-label="create new movement" i18n id="btncreatemovement" *ngIf="!this.id_movement" type="submit" class="btn btn-primary" [disabled]="!movementForm.valid">Create</button>
+            <button aria-label="edit current movement" i18n id="btneditemovement" *ngIf="this.id_movement" type="submit" class="btn btn-primary" [disabled]="!movementForm.valid">Edit</button>
+            <button aria-label="clean form" i18n id="btnclearmovement" type="button" class="btn btn-secondary mx-3" (click)="this.movementForm.reset()">Clear</button>
+            <button aria-label="go back to artist detail" i18n id="btncancel" type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>

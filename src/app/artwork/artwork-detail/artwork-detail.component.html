@@ -1,0 +1,17 @@
+<div class="container-fluid pb-3">
+  <p class="h3 p-3">{{ artworkDetail.name }}</p>
+  <button i18n type="submit" class="btn btn-primary" (click)="goModalImg()">Image Association</button>
+  <div class="row padding-top-1em">
+    <div class="card card-museum-detail p-2" >
+      <div class="card-body">
+        <p i18n class="card-text"><strong>Description</strong><br>{{ artworkDetail.description }}</p>
+        <hr/>
+        <p i18n class="card-text"><strong>Artist</strong><br>{{ artworkDetail.artist.name }}</p>
+        <hr/>
+        <p i18n class="card-text"><strong>Year</strong><br>{{ artworkDetail.year }}</p>
+        <hr/>
+        <p i18n class="card-text"><strong>Type</strong><br>{{ artworkDetail.type }}</p>
+      </div>
+    </div>
+  </div>
+</div>
